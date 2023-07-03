@@ -1,0 +1,15 @@
+{
+"login" : "تسجيل الدخول",
+"companyname" : "الرمز التعرفي للشركه",
+"username" : "اسم المستخدم",
+"password" : "كلمه المرور",
+"rememberme" : "تذكرني",
+"forgetpassword" : "هل نسيت كلمه المرور",
+"account" : "هل لديك حساب",
+"createaccounte" : "انشاء حساب",
+"english" : "العربيه",
+"pleaseenter" : "من فضلك ادخل ",
+  "email" : "البريد الالكتروني",
+  "send" : "ارسال",
+  "forgetpasslogo" : "نسيت كلمه المرور"
+}

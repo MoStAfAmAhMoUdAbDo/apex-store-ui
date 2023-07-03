@@ -1,0 +1,15 @@
+{
+"login" : "Login",
+"companyname" : "Company Name",
+"username" : "Username",
+"password" : "Password",
+"rememberme" : "Remember me",
+"forgetpassword" : "Do you forget password",
+"account" : "Do you have account ",
+"createaccounte" : "Create Accounte",
+"english" : "English",
+"pleaseenter" : "Please Enter",
+  "email" : "Email",
+  "send" : "Send",
+  "forgetpasslogo" : "Forget Password"
+}
