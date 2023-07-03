@@ -51,6 +51,12 @@ dependencies:
   animation_search_bar: ^0.0.10
   persistent_bottom_nav_bar: ^5.0.2
 
+  path_provider: ^2.0.15
+  webview_flutter: ^4.2.2
+  printing: ^5.11.0
+  pdf: ^3.10.4
+  syncfusion_flutter_pdfviewer: ^21.2.10
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

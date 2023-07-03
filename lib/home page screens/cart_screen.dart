@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -72,39 +71,49 @@ class My_basket extends StatelessWidget {
                               children: [
                                 IconButton(
                                   onPressed: () {
-                                    Item new_item=provid.bascet_item[index];
-                                    new_item.qty= ++new_item.qty;
+                                    Item new_item = provid.bascet_item[index];
+                                    new_item.qty = ++new_item.qty;
                                     //provid.updat(index, new_item);
                                     provid.updat();
                                   },
                                   icon: Icon(Icons.add_circle_outline),
                                 ),
                                 Text("${provid.bascet_item[index].qty}"),
-                                IconButton(onPressed: (){
-                                  Item new_item=provid.bascet_item[index];
-                                  new_item.qty= --new_item.qty;
-                                  //provid.updat(index, new_item);
-                                  provid.updat();
-                                }, icon: Icon(Icons.do_not_disturb_on_outlined),),
+                                IconButton(
+                                  onPressed: () {
+                                    Item new_item = provid.bascet_item[index];
+                                    new_item.qty = --new_item.qty;
+                                    //provid.updat(index, new_item);
+                                    provid.updat();
+                                  },
+                                  icon: Icon(Icons.do_not_disturb_on_outlined),
+                                ),
                               ],
                             ),
-
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  Text("${provid.bascet_item[index].name}"),
-                                  Text(" ${provid.bascet_item[index].price} السعر"),
+                                  Container(
+
+                                    child:provid.bascet_item[index].latinName!.length > 25?
+                                    Text(
+                                        "${provid.bascet_item[index].latinName!.substring(0,25).toString()}") : Text(
+                                        "${provid.bascet_item[index].latinName.toString()}"),
+                                  ),
                                   Text(
-                                      "${provid.bascet_item[index].price * provid.bascet_item[index].qty}: المجموع الفرعي"),
+                                      " ${provid.bascet_item[index].units[0].salePrice1} السعر"),
+                                  Text(
+                                      "${provid.bascet_item[index].units[0].salePrice1! * provid.bascet_item[index].qty}: المجموع الفرعي"),
                                   Row(
                                     children: [
                                       Text("مسح"),
                                       IconButton(
                                         onPressed: () {
-                                          provid.remove_item(provid.bascet_item[index]);
+                                          provid.remove_item(
+                                              provid.bascet_item[index]);
                                         },
                                         icon: Icon(Icons.delete_sweep),
                                       ),

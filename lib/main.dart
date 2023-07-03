@@ -20,6 +20,7 @@ import 'api_directory/login_api.dart';
 import 'home page screens/cart_items.dart';
 import 'home page screens/home_screenpage.dart';
 import 'home page screens/main_screen.dart';
+import 'home page screens/menu_provider.dart';
 import 'home page screens/persistent_bar.dart';
 import 'home page screens/qr_scanner.dart';
 import 'screens/loginpagearabe.dart';
@@ -104,6 +105,8 @@ class _HOmePageState extends State<HOmePage> {
             create: (context)=>loginapi()),
     ChangeNotifierProvider(
     create: (context) => Cart_Items()),
+        ChangeNotifierProvider(
+          create: (context) => menuProviderOptions(),)
       ],
       child:MyApp());
   }

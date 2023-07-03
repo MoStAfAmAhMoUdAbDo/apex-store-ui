@@ -7,10 +7,12 @@ import 'items.dart';
 class Cart_Items with ChangeNotifier {
   List<Item> _my_items = [];
   double _price = 0.0;
+  int cart_count =0;
+
   void add_item(Item item) {
     if (_my_items.isEmpty) {
       _my_items.add(item);
-      _price += item.price * item.qty;
+      _price += item.units[0].salePrice1! * item.qty;
       notifyListeners();
     } else {
       int founded = _my_items.indexWhere((element) => element.id == item.id);
@@ -18,27 +20,13 @@ class Cart_Items with ChangeNotifier {
         notifyListeners();
       } else {
         _my_items.add(item);
-        _price += item.price * item.qty;
+        _price += item.units[0].salePrice1! * item.qty;
         notifyListeners();
       }
     }
   }
 
   void updat() {
-    // if (_my_items[x].qty > item.qty) {
-    //   int qty=item.qty;
-    //   int dif = _my_items[x].qty - item.qty;
-    //   _price = _price - (dif * item.price);
-    //   _my_items[x].qty = qty;
-    //   notifyListeners();
-    // } else if (_my_items[x].qty <= item.qty) {
-    //   int qty=item.qty;
-    //   int dif = item.qty - _my_items[x].qty;
-    //   _price = _price + (dif * item.price);
-    //   _my_items[x].qty = qty;
-    //   notifyListeners();
-    // }
-    // print("the total price in update fn call ${_price}");
     notifyListeners();
   }
 
@@ -49,7 +37,7 @@ class Cart_Items with ChangeNotifier {
   double get_total_price() {
     double x = 0;
     for (int i = 0; i < _my_items.length; i++) {
-      x += (_my_items[i].price * _my_items[i].qty);
+      x += (_my_items[i].units[0].salePrice1! * _my_items[i].qty);
     }
     _price = x;
     return _price;
@@ -66,7 +54,7 @@ class Cart_Items with ChangeNotifier {
     }
     if (!removed_tiem.isEmpty) {
       for (Item data in removed_tiem) {
-        _price -= data.price;
+        _price -= data.units[0].salePrice1!;
         _my_items.remove(data);
       }
       notifyListeners();
@@ -83,4 +71,32 @@ class Cart_Items with ChangeNotifier {
   List<Item> get bascet_item {
     return _my_items;
   }
+
+  List<Item> update_my_list(List<Item> saved){
+    if(_my_items.isEmpty){
+      return saved ;
+    }
+    else{
+      List<Item> new_list =[];
+      for(Item item in _my_items){
+        for(Item i in saved){
+          if(item.id==i.id){
+            new_list.add(item);
+            break;
+          }
+        }
+      }
+      return new_list;
+    }
+
+  }
+
+// List<Item> _saved_list =[];
+// void save_my_list(List<Item> saved){
+//   _saved_list.clear();
+//   _saved_list.addAll(saved);
+// }
+// List<Item> get_saved_list(){
+//   return _saved_list ;
+// }
 }

@@ -4,7 +4,7 @@ import 'dart:convert' as convert;
 
 class loginapi with ChangeNotifier {
   var result;
-  String token ="";
+  static String token ="";
   bool _load = false;
   bool get loaded => _load;
   checkloding(bool val) {
@@ -17,7 +17,7 @@ class loginapi with ChangeNotifier {
     checkloding(true);
     _load=true;
 
-    var login_url = 'https://erpback.apex-program.com/api/Login';
+    var login_url = 'http://192.168.1.253:8091/api/Login';
 
     try {
       var url = Uri.parse(login_url);

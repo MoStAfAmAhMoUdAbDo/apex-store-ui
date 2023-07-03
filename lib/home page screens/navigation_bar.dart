@@ -1,15 +1,16 @@
-
+import 'package:apex/home%20page%20screens/pdf_printing.dart';
 import 'package:flutter/material.dart';
 
 import 'draft_screen.dart';
 import 'home_screenpage.dart';
-import 'persistent_bar.dart';
+import 'menu_options.dart';
+import 'new_search_screen.dart';
 
 
 
 class Navigation_bar extends StatefulWidget {
   const Navigation_bar({Key? key}) : super(key: key);
-
+  static const rout ='/navigation_bar';
   @override
   State<Navigation_bar> createState() => _Navigation_barState();
 }
@@ -18,10 +19,10 @@ class _Navigation_barState extends State<Navigation_bar> {
   int page_index=0;
   List Pages =[
     home_screen(),
-    screen2(),
+    pdf_printing(),
     Draft_Screen(),
-    screen4(),
-    screen5(),
+    search_test(),
+    menuOptions(),
   ];
   @override
   Widget build(BuildContext context) {

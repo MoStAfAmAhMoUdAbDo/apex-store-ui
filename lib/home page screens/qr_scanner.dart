@@ -4,7 +4,6 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'dart:io';
 
 import 'home_screenpage.dart';
-import 'main_screen.dart';
 import 'navigation_bar.dart';
 
 class Qr_scanner extends StatefulWidget {
@@ -83,10 +82,9 @@ class _Qr_scannerState extends State<Qr_scanner> {
                             setState(() {
                               controller?.pauseCamera();
                             });
-                            Navigator.pushReplacementNamed(
-                                context, Main_Screen.rout);
+                            //Navigator.pushReplacementNamed(context, Main_Screen.rout);
                             //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Main_Screen()));
-                            //Navigator.of(context).pop();
+                            Navigator.of(context).pop();
                             //Navigator.of(context).pushNamedAndRemoveUntil(Main_Screen.rout, (route) => false);
                           },
                           child: Text(
@@ -158,10 +156,9 @@ class _Qr_scannerState extends State<Qr_scanner> {
         controller?.pauseCamera();
       });
       if (result_qr != null) {
-        Navigator.pushReplacementNamed(context, Main_Screen.rout,
-            arguments: result_qr);
+        //Navigator.pushReplacementNamed(context, Main_Screen.rout,arguments: result_qr);
         //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Persistent_nav_Bar()));
-        //Navigator.of(context).pop(result_qr);
+        Navigator.of(context).pop(result_qr);
         //Navigator.of(context).pushNamedAndRemoveUntil(Main_Screen.rout, (route) => false ,arguments: result_qr); remove all rootes and set the root i  specified in the stack
 
         controller?.stopCamera();
