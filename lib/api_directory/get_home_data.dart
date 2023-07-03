@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:apex/api_directory/login_api.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -11,8 +12,9 @@ class getHomeData{
     List<Item> dataM = [];
     String url ="http://192.168.1.253:8091/api/Store/POSTouch/getItemsOfPOS";
 
-    String auth=
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJSb2xlRGV0YWlscyI6IkorT0ZWUlJGVVhIWXNNb1I3VU1ubXc9PSIsIkRCbmFtZSI6InRQSnZkR25tdTZKWFAvNnVuYVQ3V3lNNnBCU3h4UXRsOHdMbi94UXBsQUp2NUNuOGpyZDcwZjNhcVNmTWF0dGgiLCJ1c2VySUQiOiJVT1FUeGFraVNWWTdhbEE0VlNjUDRRPT0iLCJFbmRQZXJpb2RPbkVuZFBlcmlvZE9uIjoiMTgvMDYvMjAyNCAxMjowMDowMCDYtSIsImVtcGxveWVlSWQiOiJVT1FUeGFraVNWWTdhbEE0VlNjUDRRPT0iLCJDTCI6IlhvbGgzWXovVHkwZEtWSDVDaUUzdWc9PSIsImlzUE9TRGVza3RvcCI6IjAiLCJpc1BlcmlvZEVuZGVkIjoiRmFsc2UiLCJleHAiOjE2ODgzOTQ4ODQsImlzcyI6Imh0dHA6Ly93d3cuVGVzdC5jb20iLCJhdWQiOiJodHRwOi8vd3d3LlRlc3QuY29tIn0.lw4SS5N6g6bB1DA53ggJ6QOhmbIlJ_pgyI-daDW6nPs";
+    // String auth=
+    //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6IkpXVCJ9.eyJSb2xlRGV0YWlscyI6IkorT0ZWUlJGVVhIWXNNb1I3VU1ubXc9PSIsIkRCbmFtZSI6InRQSnZkR25tdTZKWFAvNnVuYVQ3V3lNNnBCU3h4UXRsOHdMbi94UXBsQUp2NUNuOGpyZDcwZjNhcVNmTWF0dGgiLCJ1c2VySUQiOiJVT1FUeGFraVNWWTdhbEE0VlNjUDRRPT0iLCJFbmRQZXJpb2RPbkVuZFBlcmlvZE9uIjoiMTgvMDYvMjAyNCAxMjowMDowMCDYtSIsImVtcGxveWVlSWQiOiJVT1FUeGFraVNWWTdhbEE0VlNjUDRRPT0iLCJDTCI6IlhvbGgzWXovVHkwZEtWSDVDaUUzdWc9PSIsImlzUE9TRGVza3RvcCI6IjAiLCJpc1BlcmlvZEVuZGVkIjoiRmFsc2UiLCJleHAiOjE2ODgzOTQ4ODQsImlzcyI6Imh0dHA6Ly93d3cuVGVzdC5jb20iLCJhdWQiOiJodHRwOi8vd3d3LlRlc3QuY29tIn0.lw4SS5N6g6bB1DA53ggJ6QOhmbIlJ_pgyI-daDW6nPs";
+    String auth="Bearer ${loginapi.token}";
     Map<String, dynamic> queryParameter = {
       "PageSize": pagesize.toString(),
       "PageNumber": pageNumber.toString(),

@@ -51,7 +51,9 @@ class _Arab_loginState extends State<Arab_login> {
     super.initState();
     get_data();
   }
-
+  // remember,
+  // passwordtxt.text.toString(),
+  // companytxt.text.toString());
   Save_data(bool rember_me, String company_name, String user_name) async {
     print("saved prefrence");
     SharedPreferences pref = await SharedPreferences.getInstance();
@@ -235,8 +237,9 @@ class _Arab_loginState extends State<Arab_login> {
                                   });
                                   await Save_data(
                                       remember,
-                                      passwordtxt.text.toString(),
-                                      companytxt.text.toString());
+                                      companytxt.text.toString(),
+                                    usernametxt.text.toString()
+                                  );
                                   Navigator.pushReplacementNamed(context,Main_Screen.rout );
                                 } else if (res == 0) {
                                   circale_load_flag=false;

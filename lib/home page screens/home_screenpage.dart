@@ -73,13 +73,15 @@ class _home_screenState extends State<home_screen> {
       });
     }
   }
-
+  var result;
+  int x=0;
   @override
   Widget build(BuildContext context) {
-    var result = ModalRoute.of(context)!.settings.arguments;
+    //var result = ModalRoute.of(context)!.settings.arguments;
     //TextEditingController textController = TextEditingController();
-    print("the bool value of image is ${Provider.of<menuProviderOptions>(context).disableImage}");
-    print ("the value of token is ${loginapi.token}");
+    // print("the bool value of image is ${Provider.of<menuProviderOptions>(context).disableImage}");
+    // print ("the value of token is ${loginapi.token}");
+    print ("the value  of qr scan is $result num${x++}");
     return Scaffold(
         floatingActionButton: FloatingActionButton.large(
           backgroundColor: Colors.indigo,
@@ -130,10 +132,13 @@ class _home_screenState extends State<home_screen> {
           ),
           actions: [
             IconButton(
-              onPressed: (){
-                Navigator.pushNamed(context, Qr_scanner.rout);
+              onPressed: ()async{
+               result=await Navigator.pushNamed(context, Qr_scanner.rout);
                 // Navigator.of(context).push(
                 //     MaterialPageRoute(builder: (context) => Qr_scanner()));
+                setState(() {
+
+                });
               },
               icon: const Icon(
                 Icons.qr_code_scanner_outlined,
